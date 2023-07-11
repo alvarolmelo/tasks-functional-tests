@@ -1,5 +1,4 @@
-package br.com.alv.tasks.funcionaltest;
-
+package br.com.alv.tasks.functional;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -7,8 +6,10 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.boot.test.context.SpringBootTest;
 
-public class TasksTest {
+@SpringBootTest
+public class FuncionalApplicationTest {
     
     public WebDriver acessarAplicacao(){
         WebDriver driver = new ChromeDriver();
