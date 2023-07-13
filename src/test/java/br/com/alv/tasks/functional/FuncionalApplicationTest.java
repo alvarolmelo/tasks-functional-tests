@@ -28,7 +28,7 @@ public class FuncionalApplicationTest {
         driver.set(new RemoteWebDriver(new URL("http://192.168.50.196:4444/wd/hub"), options));
 
         //WebDriver driver = new RemoteWebDriver( new URL("http://10.52.226.13:4444/wd/hub"), cap);
-        driver.get().get("http://10.52.226.16:8001/tasks");
+        driver.get().get("http://192.168.50.196:8001/tasks");
         WebDriverWait wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10));
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
