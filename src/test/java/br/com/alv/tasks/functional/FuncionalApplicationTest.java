@@ -83,7 +83,7 @@ public class FuncionalApplicationTest {
         try {
             driver.get().findElement(By.id("addTodo")).click();
             driver.get().findElement(By.id("task")).sendKeys("Teste via Selenium");
-            driver.get().findElement(By.id("dueDate")).sendKeys("10/10/2000");
+            driver.get().findElement(By.id("dueDate")).sendKeys("10/10/2030");
             driver.get().findElement(By.id("saveButton")).click();
             String message = driver.get().findElement(By.id("message")).getText();
             Assert.assertEquals("Due date must not be in past", message);
@@ -91,5 +91,25 @@ public class FuncionalApplicationTest {
             driver.get().quit();
         };
     }
+
+    @Test
+    public void naoDeveRemoverTarefaComSucesso() throws MalformedURLException{
+        ThreadLocal<RemoteWebDriver>  driver = acessarAplicacao();
+        try {
+            driver.get().findElement(By.id("addTodo")).click();
+            driver.get().findElement(By.id("task")).sendKeys("Teste via Selenium");
+            driver.get().findElement(By.id("dueDate")).sendKeys("10/10/2000");
+            driver.get().findElement(By.id("saveButton")).click();
+            String message = driver.get().findElement(By.id("message")).getText();
+            Assert.assertEquals("Success!", message);
+
+            driver.get().findElement(By.xpath("//a[@class = 'btn btn-outline-danger btn-sm']")).click();
+            message = driver.get().findElement(By.id("message")).getText();
+            Assert.assertEquals("Success!", message);
+        }finally{
+            driver.get().quit();
+        };
+    }
+
 
 }
